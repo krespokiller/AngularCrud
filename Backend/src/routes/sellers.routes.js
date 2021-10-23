@@ -8,10 +8,10 @@ router.post("/add",controller.CreateSeller)
 
 router.get("/all",controller.GetSellers)
 
-router.get("/:id",controller.GetSeller)
+router.get("/get/:id",controller.GetSeller)
 
-router.put("/:id",controller.UpdateSeller)
+router.put("/update/:id",controller.UpdateSeller)
 
-router.delete("/:id",controller.DeleteSeller)
+router.delete("/delete/:id",controller.DeleteSeller)
 
 module.exports = router

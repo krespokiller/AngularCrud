@@ -2,25 +2,32 @@
 
 const controller ={};
 
+const Seller = require('../models/sellers')
 
-controller.GetSellers = (req,res) =>{
-res.send('get all sellers')
+controller.GetSellers = async(req,res) =>{
+    const sellers = await Seller.find()
+    res.json(sellers)
 }
 
-controller.GetSeller = (req,res) =>{
-    res.send('get a seller')
+controller.GetSeller = async(req,res) =>{
+    const seller = await Seller.findById(req.params.id)
+    res.send(seller)
 }
 
-controller.CreateSeller = (req,res) =>{
-    res.send('create a seller')
+controller.CreateSeller = async(req,res) =>{
+    const newseller = new Seller(req.body)
+    await newseller.save()
+    res.send({message: "Seller Created"})
 }
 
-controller.UpdateSeller = (req,res) =>{
-    res.send('update a seller')
+controller.UpdateSeller = async(req,res) =>{
+    await Seller.findByIdAndUpdate(req.params.id, req.body)
+    res.send({message: "Seller Updated"})
 }
 
-controller.DeleteSeller = (req,res) =>{
-    res.send('delete a seller')
+controller.DeleteSeller = async(req,res) =>{
+    await Seller.findByIdAndDelete(req.params.id)
+    res.send({message: "Seller Deleted"})
 }
 
 
