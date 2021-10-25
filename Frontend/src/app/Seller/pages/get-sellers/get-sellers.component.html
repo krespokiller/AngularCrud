@@ -1,0 +1,43 @@
+
+<div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <div *ngFor="let Seller of Sellers">
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <div class="inner-box">
+                <nz-card nzHoverable class="CardsItems" [nzTitle]="Seller.role.toUpperCase()">
+                    <div>
+                        <div>
+                            <div>
+                                <h4>ID:</h4>
+                                <p>{{Seller._id}}</p>
+                            </div>
+                            <hr>
+                            <br>
+                            <div>
+                                <p>{{Seller.name+" "+Seller.lastname}}</p>
+                                <p>{{Seller.email}}</p>
+                                <p>"{{Seller.countryCodeName}}":{{"   "+Seller.country}}</p>
+                            </div>
+                            <div>
+                                <h3>Currency:</h3>
+                                <p>{{Seller.currency.symbol+" "+Seller.currency.code}}</p>
+                                <p>{{Seller.currency.name}}</p>
+                            </div> 
+                            <div>
+                                <p>{{Seller.countryCode+" "+Seller.phone}}</p>
+                            </div>
+                            <div>
+                                <h3>Languajes:</h3>
+                                <p 
+                                *ngFor="let Language of Seller.language">
+                                {{Language}}
+                                </p>
+                            </div> 
+                        </div>
+                      </div>    
+                </nz-card>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+

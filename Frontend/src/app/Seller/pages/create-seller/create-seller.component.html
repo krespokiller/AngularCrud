@@ -1,0 +1,187 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" autocomplete="off">
+  <!-- Role -->
+  <nz-form-item>
+    <nz-form-label
+      [nzSm]="6"
+      [nzXs]="24"
+      nzFor="role"
+      nzRequired>
+      <span>Rol</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa el rol de quien vas a ingresar!">
+      <input nz-input id="role" formControlName="role" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Languages -->
+
+  <nz-form-item>
+    <nz-form-label
+      [nzSm]="6"
+      [nzXs]="24"
+      nzFor="languages"
+      nzRequired
+      nzTooltipTitle="Ingresa los idiomas que habla"
+    >
+      <span>Idiomas:</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa los idiomas que habla ">
+      <div *ngFor="let Language of Languages">
+        <label nz-checkbox>
+          <input type="checkbox" [value]="Language.value" (change)="onCheckboxChange($event)" />
+          {{Language.name}}
+        </label>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- email -->
+
+    <nz-form-item>
+      <nz-form-label 
+      [nzSm]="6" 
+      [nzXs]="24" 
+      nzRequired 
+      nzFor="email"
+      nzTooltipTitle="Las notificaciones llegaran al correo "
+      ><span>E-mail</span></nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="No es un email valido!">
+        <input nz-input formControlName="email" id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+  <!-- Nombre -->
+
+  <nz-form-item>
+    <nz-form-label
+      [nzSm]="6"
+      [nzXs]="24"
+      nzFor="name"
+      nzRequired
+      nzTooltipTitle="Ingresa el nombre!"
+    >
+      <span>Nombre:</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa el nombre!">
+      <input nz-input id="name" formControlName="name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Lastname -->
+
+  <nz-form-item>
+    <nz-form-label
+      [nzSm]="6"
+      [nzXs]="24"
+      nzFor="lastname"
+      nzRequired
+      nzTooltipTitle="Ingresa el apellido!"
+    >
+      <span>Apellido:</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa el nombre!">
+      <input nz-input id="lastname" formControlName="lastname"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Currency -->
+
+  <nz-form-item>
+    <nz-form-label
+      [nzSm]="6"
+      [nzXs]="24"
+      nzFor="currency"
+      nzRequired
+      nzTooltipTitle="Ingresa la moneda!"
+    >
+      <span>Moneda</span>
+    </nz-form-label>
+    <div>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa la moneda!" formGroupName="currency">
+      <span>Codigo:</span>
+      <input nz-input id="currencycode" formControlName="code"/>
+
+      <span>Nombre:</span>
+      <input nz-input id="currencyname" formControlName="name"/>
+
+      <span>Simbolo:</span>
+      <input nz-input id="currencysymbol" formControlName="symbol"/>
+    </nz-form-control>
+    </div>
+
+  </nz-form-item>
+
+    <!-- country -->
+
+    <nz-form-item>
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzFor="country"
+        nzRequired
+        nzTooltipTitle="Ingresa el pais!"
+      >
+        <span>Pais:</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa el Pais!">
+        <input nz-input id="country" formControlName="country"/>
+      </nz-form-control>
+    </nz-form-item>
+
+  <!--countrycode-->
+  
+  <nz-form-item>
+    <nz-form-label 
+    [nzSm]="6" 
+    [nzXs]="24" 
+    nzFor="countryCode" 
+    nzRequired>Codigo del pais:</nz-form-label>
+    <nz-form-control>
+    <nz-select class="phone-select" formControlName="countryCode">
+      <nz-option nzLabel="+52" nzValue="+52"></nz-option>
+      <nz-option nzLabel="+57" nzValue="+57"></nz-option>
+    </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+    <!-- countryCodeName -->
+
+    <nz-form-item>
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzFor="countryCodeName"
+        nzRequired
+        nzTooltipTitle="Ingresa el pais!"
+      >
+        <span>Country Code Name:</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingresa el Country Code Name!">
+        <input nz-input id="countryCodeName" formControlName="countryCodeName"/>
+      </nz-form-control>
+    </nz-form-item>
+
+  <!--Phone-->
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>Numero de telefono</nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        [nzValidateStatus]="validateForm.controls['phone']"
+        nzErrorTip="Please input your phone number!"
+      >
+          <input formControlName="phone" id="'phone'" nz-input />
+      </nz-form-control>
+    </nz-form-item>
+  
+
+  
+
+
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Register</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>

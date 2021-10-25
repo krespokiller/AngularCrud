@@ -1,0 +1,12 @@
+.CardsItems{
+    width:50vw;
+}
+
+@media screen and (min-width: 750px){
+    .CardsItems{
+        width:300px;
+    }
+}
+p{
+    overflow: auto;
+}
